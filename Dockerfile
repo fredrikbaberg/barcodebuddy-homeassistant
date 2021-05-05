@@ -7,6 +7,9 @@ ARG BUILD_DATE
 ARG BUILD_REF
 ARG BUILD_VERSION
 
+RUN grep -rli '/config' /etc/ | xargs -i@ sed -i 's#/config#/data#g' @
+RUN grep -rli '/config' /defaults/ | xargs -i@ sed -i 's#/config#/data#g' @
+
 # Labels
 LABEL \
     io.hass.name="Barcode Buddy for Grocy" \
